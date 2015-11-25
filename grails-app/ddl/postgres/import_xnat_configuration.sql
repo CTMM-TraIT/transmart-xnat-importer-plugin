@@ -13,7 +13,8 @@ CREATE TABLE searchapp.import_xnat_configuration (
 );
 ALTER TABLE searchapp.import_xnat_configuration OWNER TO searchapp;
 GRANT ALL ON TABLE searchapp.import_xnat_configuration TO searchapp;
-
+GRANT SELECT, UPDATE, INSERT, DELETE ON TABLE searchapp.import_xnat_configuration TO biomart_user;
+GRANT ALL ON TABLE searchapp.import_xnat_configuration TO tm_cz;
 --
 -- Name: pk_import_xnat_configuration; Type: CONSTRAINT; Schema: searchapp; Owner: -
 --
