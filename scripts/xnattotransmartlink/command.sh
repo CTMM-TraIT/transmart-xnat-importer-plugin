@@ -1,9 +1,10 @@
 #!/bin/bash
-export KETTLE_HOME="/home/transmart/transmart-data/samples/postgres/kettle-home/"
+export TS_DATA="/home/transmart/transmart-data/"
+export KETTLE_HOME="${TS_DATA}samples/postgres/kettle-home/"
 
-sh "/home/jenkins/transmart-data/env/data-integration/kitchen.sh" \
+sh "${TS_DATA}env/data-integration/kitchen.sh" \
 -norep=N \
--file="/home/transmart/transmart-data/env/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/create_clinical_data.kjb" \
+-file="${TS_DATA}env/tranSMART-ETL/Postgres/GPL-1.0/Kettle/Kettle-ETL/create_clinical_data.kjb" \
 -log=load_clinical_data.log \
 -param:LOAD_TYPE=I \
 -param:COLUMN_MAP_FILE=xnat.tmm \
