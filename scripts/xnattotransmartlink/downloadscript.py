@@ -55,7 +55,7 @@ def loadCustomVariable(interface, variableName, url):
     return value
 
 def createVariableURL(dataType, project, subject, experiment):
-    if dataType == "subjectvariable":
+    if dataType.lower() == "subjectvariable":
         return "/data/projects/" + project + "/subjects/" + subject + "?format=xml"
     else:
         return "/data/projects/" + project + "/subjects/" + subject + "/experiments/" + experiment + "?format=xml"
@@ -95,7 +95,7 @@ def createDatafile(interface, project, subjects, variableList, mappingList, url)
                         if dataType.lower() == XNAT_SUBJECT.lower():
                             file.write(transmartDataFile, subject.attrs.get(variable))
                         elif dataType.lower() == XNAT_SESSION.lower():
-	    	            file.write(transmartDataFile, session.attrs.get(variable))
+			    file.write(transmartDataFile, session.attrs.get(variable))
                         elif dataType.lower() == "subjectvariable".lower() or \
 	        	        dataType.lower() == "sessionvariable".lower():
 	    	            file.write(transmartDataFile, 
